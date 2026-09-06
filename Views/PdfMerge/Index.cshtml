@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Merge PDFs";
+}
+
+<h2>Merge Multiple PDFs</h2>
+
+<form method="post" enctype="multipart/form-data" asp-controller="PdfMerge" asp-action="MergePDFs">
+    <div>
+        <label>Select PDF files (at least 2):</label><br />
+        <input type="file" name="files" multiple accept=".pdf" />
+    </div>
+    <br />
+    <button type="submit">Merge PDFs</button>
+</form>
+
+@if (TempData["Error"] != null)
+{
+        <div style="color:red">@TempData["Error"]</div>
+}
